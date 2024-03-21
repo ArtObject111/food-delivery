@@ -1,0 +1,10 @@
+.form-control.error input {
+    border: 1px solid red !important;
+}
+
+.form-control.error span {
+    color: red;
+    font-weight: 200;
+    max-width: 200px;
+    display: flex;
+}

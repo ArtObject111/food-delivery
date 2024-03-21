@@ -1,0 +1,44 @@
+.header {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .login-block {
+        position: absolute;
+        right: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+            margin-top: 3px;
+        }
+
+        a {
+            margin-top: 10px;
+            text-decoration: underline;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            height: 120px;
+        }
+    
+        label {
+            margin-top: 5px;
+        }
+    }
+  }

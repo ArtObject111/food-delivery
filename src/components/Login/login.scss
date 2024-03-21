@@ -1,0 +1,81 @@
+.auth {
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-summary-error {
+        margin-top: 20px;
+        color: red;
+        font-weight: 200;
+    }
+
+    .auth__inner {
+
+        &:first-child {
+            margin-bottom: 15px;
+        }
+
+        input {
+            height: 35px;
+            border: 1px solid silver;
+            border-radius: 30px;
+            padding-inline: 15px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        label {
+            margin-left: 10px;
+            font-weight: 200;
+        }
+    }
+
+    .auth__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+
+        button {
+            height: 40px;
+            width: 200px;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            border-radius: 30px;
+            padding-inline: 15px;
+            box-sizing: border-box;
+            font-family: Geologica;
+            font-weight: 200;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:first-child {
+                margin-bottom: 10px;
+            }
+    
+            &:hover {
+                transition: 0.2s;
+                color: #000;
+                background-color: #fcfbf0;
+                border: 1px solid #000;
+            }
+
+            &:active {
+                color: #000;
+                background-color: #fff;
+                border: 1px solid silver;
+            }
+    }
+
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: 100;
+        // border-bottom: 1px solid #DCDCDC;
+    }
+
+}
