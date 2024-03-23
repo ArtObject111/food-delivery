@@ -1,0 +1,15 @@
+.menu {
+    display: flex;
+    justify-content: center;
+
+    .menu__content {
+        max-width: 870px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .grid-items {
+            display: flex;
+        }
+    }
+}

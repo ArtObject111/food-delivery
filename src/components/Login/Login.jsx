@@ -62,10 +62,10 @@ class Login extends React.Component {
 
         return (
             <div className="auth">
-            <h1>
-                Вход
-            </h1>
-            <AuthUserForm onSubmit={this.onSignIn}/>
+                <h1>
+                    Вход
+                </h1>
+                <AuthUserForm onSubmit={this.onSignIn}/>
             </div>
         )
     }

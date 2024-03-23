@@ -4,17 +4,17 @@ const SET_SUCCESS_INITIALIZATION = "SET-SUCCESS-INITIALIZATION";
 const TOGGLE_IS_FETCHING  = "TOGGLE-IS-FETCHING";
 
 let initialState = {
-    isInitialized: false,
-    isFetching: true
+    isFetching: true,
+    chosenFood: [
+        {foodName: "", itemsAmount: null}
+    ],
+    generalCoast: null,
+    payWay: "",
+    address: ""
 }
 
-const appReducer = (state = initialState, action) => {
+const checkoutReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_SUCCESS_INITIALIZATION:
-            return {
-                ...state,
-                isInitialized: true
-            }
         case TOGGLE_IS_FETCHING:
             return {
                 ...state,
@@ -26,12 +26,10 @@ const appReducer = (state = initialState, action) => {
     }
 }
 
-export const setSuccessInitialization = () => ({type: SET_SUCCESS_INITIALIZATION});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const initializeAppTC = () => async (dispatch) => {
-    await dispatch(getAuthUserDataTC())
-    await dispatch(setSuccessInitialization())
+    
 }
 
-export default appReducer;
+export default checkoutReducer;

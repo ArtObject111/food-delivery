@@ -8,6 +8,10 @@
   src: url("./assets/fonts/actaywide-bold.otf");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background-color: #fcfbf0;

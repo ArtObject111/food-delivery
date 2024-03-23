@@ -18,17 +18,17 @@ import { getAuthUserDataTC } from './redux/auth-reducer';
 class App extends Component {
 
   componentDidMount() {
-    // this.props.initializeApp()
-    this.props.getAuthUserData()
+    this.props.initializeApp()
+    // this.props.getAuthUserData()
   }
 
   render () {
 
-    // if (!this.props.isInitialized) {
-    //   return (
-    //     <Preloader/>
-    //   )
-    // }
+    if (!this.props.isInitialized) {
+      return (
+        <Preloader/>
+      )
+    }
 
     return (
       <div className="app">
@@ -51,10 +51,10 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   isInitialized: state.app.isInitialized,
-  isFetching: state.app.isFetching
+  isFetching:    state.app.isFetching
 })
 
 export default connect(mapStateToProps, {
-  initializeApp: initializeAppTC,
+  initializeApp:   initializeAppTC,
   getAuthUserData: getAuthUserDataTC
 })(App)
