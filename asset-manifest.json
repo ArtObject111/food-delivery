@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/food-delivery/static/css/main.53fdc67a.css",
+    "main.js": "/food-delivery/static/js/main.8f1359a7.js",
+    "static/js/453.1c9a1edb.chunk.js": "/food-delivery/static/js/453.1c9a1edb.chunk.js",
+    "static/media/Geologica.ttf": "/food-delivery/static/media/Geologica.f3e3fbc9355fd9e0c193.ttf",
+    "static/media/actaywide-bold.otf": "/food-delivery/static/media/actaywide-bold.caa5b9cf6208eb686929.otf",
+    "static/media/icon.svg": "/food-delivery/static/media/icon.2d074a62f65d4b45a5d3d1c733516d55.svg",
+    "static/media/tail-spin.svg": "/food-delivery/static/media/tail-spin.373d6c85096259c45c797bcfb299d3f2.svg",
+    "index.html": "/food-delivery/index.html",
+    "static/media/user-icon.svg": "/food-delivery/static/media/user-icon.5504b8a9ba744268b82ff95f34763e33.svg",
+    "static/media/new-cart.svg": "/food-delivery/static/media/new-cart.90e942cae899068a3a850f0ae983339e.svg",
+    "main.53fdc67a.css.map": "/food-delivery/static/css/main.53fdc67a.css.map",
+    "main.8f1359a7.js.map": "/food-delivery/static/js/main.8f1359a7.js.map",
+    "453.1c9a1edb.chunk.js.map": "/food-delivery/static/js/453.1c9a1edb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53fdc67a.css",
+    "static/js/main.8f1359a7.js"
+  ]
+}
