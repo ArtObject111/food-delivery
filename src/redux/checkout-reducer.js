@@ -1,13 +1,7 @@
-import {getAuthUserDataTC} from "./auth-reducer";
-
-const SET_SUCCESS_INITIALIZATION = "SET-SUCCESS-INITIALIZATION";
 const TOGGLE_IS_FETCHING  = "TOGGLE-IS-FETCHING";
 
 let initialState = {
     isFetching: true,
-    chosenFood: [
-        {foodName: "", itemsAmount: null}
-    ],
     generalCoast: null,
     payWay: "",
     address: ""

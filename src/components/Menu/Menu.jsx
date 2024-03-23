@@ -5,15 +5,32 @@ import { compose }          from "redux";
 import                      "./menu.scss"
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { FoodItem }         from "./FoodItem/FoodItem";
-import { getMenuTC }        from "../../redux/menu-reducer";
+import { addToCart, getMenuTC, removeFromCart }        from "../../redux/menu-reducer";
 import { Preloader }        from "../../common/Preloader/Preloader";
 import InfiniteScroll       from "react-infinite-scroll-component";
+import CartIcon             from "../../assets/vector/new-cart.svg"
+import { NavLink }          from "react-router-dom";
 
 class Menu extends React.Component {
 
+    state = {
+        editMode: false
+    }
+
     componentDidMount() {
         this.props.getMenu(this.props.limitItems)
-    }    
+    }
+
+    // componentDidUpdate() {
+    //     debugger
+    //     document.addEventListener("scroll", this.scrollHandler)
+    //     document.removeEventListener("scroll", this.scrollHandler)
+    // }
+
+    // scrollHandler = (e) => {
+    //     debugger
+    //     console.log("scroll")
+    // }
 
     render() {
 
@@ -21,7 +38,9 @@ class Menu extends React.Component {
             isLoading,
             menuItems,
             limitItems,
-            getMenu
+            getMenu,
+            addToCart,
+            removeFromCart
         } = this.props
 
         const handleScrollMenu = () => {
@@ -33,6 +52,11 @@ class Menu extends React.Component {
                 <h1>
                     Меню
                 </h1>
+                <NavLink to="/checkout">
+                    <div className="cart-icon">
+                        <img src={CartIcon} alt="cart icon"/>
+                    </div>
+                </NavLink>
                 <div className="menu">
                     <InfiniteScroll
                         dataLength = {menuItems.length} //This is important field to render the next data
@@ -46,13 +70,18 @@ class Menu extends React.Component {
                         }>
                         <div className="menu__content">
                             {menuItems && menuItems.map( foodItem => {
-                                const { id, name, price, description, image} = foodItem
+                                const { id, name, price, description, image, isChosen, timesChosen } = foodItem
                                     return <FoodItem
-                                        key         = {id}
-                                        name        = {name}
-                                        price       = {price}
-                                        description = {description}
-                                        photo       = {image}
+                                        key            = {id}
+                                        id             = {id}
+                                        name           = {name}
+                                        price          = {price}
+                                        description    = {description}
+                                        photo          = {image}
+                                        isChosen       = {isChosen}
+                                        timesChosen    = {timesChosen}
+                                        addToCart      = {addToCart}
+                                        removeFromCart = {removeFromCart}
                                     /> 
                             })}
                         </div>
@@ -70,5 +99,8 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(
-    connect(mapStateToProps, {getMenu: getMenuTC}),
+    connect(mapStateToProps, 
+        {addToCart,
+        removeFromCart,
+        getMenu: getMenuTC}),
     withAuthRedirect)(Menu)

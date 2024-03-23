@@ -7,7 +7,7 @@ import Header                from './components/Header/Header';
 import Login                 from './components/Login/Login';
 import Registration          from './components/Registration/Registration';
 import Menu                  from './components/Menu/Menu';
-import { Checkout }          from './components/Checkout/Checkout';
+import Checkout              from './components/Checkout/Checkout';
 import { connect }           from 'react-redux';
 import { initializeAppTC }   from './redux/app-reducer';
 import { Component }         from 'react';
