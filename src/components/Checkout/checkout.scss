@@ -1,0 +1,92 @@
+.checkout {
+    padding: 35px;
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid silver;
+        background: rgb(255, 241, 220);
+        border-radius: 30px;
+        padding: 20px;
+        font-weight: 200;
+    }
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            max-width: 310px;
+
+            &:first-child {
+                margin-bottom: 15px;
+            }
+    
+            input, select {
+                height: 35px;
+                border: 1px solid silver;
+                border-radius: 30px;
+                padding-inline: 15px;
+                box-sizing: border-box;
+                margin-top: 5px;
+                width: 100%;
+            }
+    
+            label {
+                margin-left: 10px;
+                font-weight: 200;
+            }
+        }
+    }
+
+    .checkout__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+
+        button {
+            height: 40px;
+            width: 200px;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            border-radius: 30px;
+            padding-inline: 15px;
+            box-sizing: border-box;
+            font-family: Geologica;
+            font-weight: 200;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:first-child {
+                margin-bottom: 10px;
+            }
+    
+            &:hover {
+                transition: 0.2s;
+                color: #000;
+                background-color: #fcfbf0;
+                border: 1px solid #000;
+            }
+
+            &:active {
+                color: #000;
+                background-color: #fff;
+                border: 1px solid silver;
+            }
+        }
+
+    }
+
+    .total-cost {
+        border-radius: 30px;
+        background: rgb(219 195 159);
+        padding: 20px;
+        font-size: x-large;
+        border: 1px solid silver;
+        margin: 30px 0;
+    }
+
+.empty {
+    font-weight: 100;
+    font-size: x-large;
+    text-align: center;
+}

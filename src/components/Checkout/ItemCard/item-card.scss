@@ -1,0 +1,97 @@
+.item-card {
+    border: 1px solid silver;
+    border-radius: 30px;
+    background: rgb(255, 241, 220);
+    padding: 30px;
+    font-weight: 100;
+    margin-top: 20px;
+
+    background: rgb(255, 241, 220);
+    padding: 30px;
+    font-weight: 100;
+    margin-top: 20px;
+
+    &__info {
+        display: flex;
+        align-items: center;
+    }
+
+    &__primary {
+        margin-left: 15px;
+    }
+
+    &__photo {
+        display: flex;
+        height: 128px;
+        width: 128px;
+        background-color: #000;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    h2 {
+        font-weight: 200;
+        font-size: larger;
+        margin: auto;
+        margin-bottom: 5px;
+    }
+
+    &__addfull {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        align-items: baseline;
+
+        button {
+            height: 35px;
+            width: 50px;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            border-radius: 30px;
+            padding-inline: 15px;
+            box-sizing: border-box;
+            font-family: Geologica;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 21px;
+
+            
+
+            &:first-child {
+                margin-bottom: 10px;
+            }
+    
+            &:hover {
+                transition: 0.2s;
+                color: #000;
+                background-color: #fcfbf0;
+                border: 1px solid #000;
+            }
+
+            &:active {
+                color: #000;
+                background-color: #fff;
+                border: 1px solid silver;
+            }
+        }
+    }
+
+    &__counter {
+        font-size: large;
+        font-weight: 400;
+    }
+
+    &__price {
+        font-weight: 600;
+        font-size: larger;
+        margin-left: 10px;
+    }
+}

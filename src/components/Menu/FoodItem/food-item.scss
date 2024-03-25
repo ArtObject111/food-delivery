@@ -1,9 +1,74 @@
 .food-item {   
     max-width: 270px;
     border: 1px solid silver;
-    padding: 20px;
     margin: 10px;
     background: rgb(255, 241, 220);
+    border-radius: 30px;
+    padding: 30px;
+    font-weight: 100;
+    position: relative;
+    height: 400px;
+
+    &__description {
+        margin-top: 10px;
+    }
+
+    &__counter {
+        font-size: large;
+        font-weight: 400;
+    }
+
+    &__price {
+        font-weight: 600;
+        font-size: larger;
+        margin-left: 10px;
+    }
+
+    &__addfull {
+        position: absolute;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        bottom: 10px;
+
+        button {
+            height: 35px;
+            width: 50px;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            border-radius: 30px;
+            padding-inline: 15px;
+            box-sizing: border-box;
+            font-family: Geologica;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 21px;
+            width: max-content !important;
+            font-size: large !important;
+            font-weight: 200 !important;
+            padding-inline: 30px !important;
+
+            
+
+            &:first-child {
+                margin-bottom: 10px;
+            }
+    
+            &:hover {
+                transition: 0.2s;
+                color: #000;
+                background-color: #fcfbf0;
+                border: 1px solid #000;
+            }
+
+            &:active {
+                color: #000;
+                background-color: #fff;
+                border: 1px solid silver;
+            }
+        }
+    }
 
     &__photo {
         display: flex;
@@ -18,4 +83,12 @@
             max-height: 100%;
         }
     }
+
+    h2 {
+        font-weight: 200;
+        font-size: larger;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+        
 }

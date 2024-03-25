@@ -13,31 +13,23 @@ import { NavLink }          from "react-router-dom";
 
 class Menu extends React.Component {
 
-    state = {
-        editMode: false
-    }
-
     componentDidMount() {
-        this.props.getMenu(this.props.limitItems)
+        const {
+            isInitializedMenu,
+            limitItems,
+            getMenu
+        } = this.props
+        !isInitializedMenu && getMenu(limitItems)
     }
-
-    // componentDidUpdate() {
-    //     debugger
-    //     document.addEventListener("scroll", this.scrollHandler)
-    //     document.removeEventListener("scroll", this.scrollHandler)
-    // }
-
-    // scrollHandler = (e) => {
-    //     debugger
-    //     console.log("scroll")
-    // }
 
     render() {
+        console.log("Menu")
 
         const {
             isLoading,
             menuItems,
             limitItems,
+            chosenFood,
             getMenu,
             addToCart,
             removeFromCart
@@ -70,7 +62,7 @@ class Menu extends React.Component {
                         }>
                         <div className="menu__content">
                             {menuItems && menuItems.map( foodItem => {
-                                const { id, name, price, description, image, isChosen, timesChosen } = foodItem
+                                const { id, name, price, description, image, timesChosen } = foodItem
                                     return <FoodItem
                                         key            = {id}
                                         id             = {id}
@@ -78,10 +70,10 @@ class Menu extends React.Component {
                                         price          = {price}
                                         description    = {description}
                                         photo          = {image}
-                                        isChosen       = {isChosen}
                                         timesChosen    = {timesChosen}
                                         addToCart      = {addToCart}
                                         removeFromCart = {removeFromCart}
+                                        chosenFood     = {chosenFood}
                                     /> 
                             })}
                         </div>
@@ -93,9 +85,11 @@ class Menu extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    isLoading:  state.menu.isLoading,
-    menuItems:  state.menu.menuData,
-    limitItems: state.menu.scrollSize
+    isLoading:         state.menu.isLoading,
+    menuItems:         state.menu.menuData,
+    limitItems:        state.menu.scrollSize,
+    isInitializedMenu: state.menu.isInitializedMenu,
+    chosenFood:        state.menu.chosenFood
 })
 
 export default compose(

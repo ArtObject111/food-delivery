@@ -4,20 +4,32 @@ import                     "./food-item.scss"
 import preloader           from "../../../assets/vector/tail-spin.svg"
 
 export const FoodItem = ({
-    id, name, price, description, photo, timesChosen, addToCart, removeFromCart
+    id, name, price,
+    description, photo,
+    timesChosen, addToCart,
+    removeFromCart, chosenFood
     }) => {
 
-    // const [isChosen, setIsChosen] = useState(false)
-    // const activateEditMode = () => !isChosen ? setIsChosen(true) : setIsChosen(false)
-
     const onAddToCard = (id) => {
-        debugger
         addToCart(id)
     }
 
     const onRemoveFromCard = (id) => {
-        debugger
         removeFromCart(id)
+    }
+
+    const Buttons = () => {
+        if (!timesChosen) {
+            return <div className="food-item__long">
+                <button onClick={() => onAddToCard(id)}>Заказать</button>
+            </div>
+        } else {
+            return <div className="food-item__counter">
+                <button onClick={() => onRemoveFromCard(id)} >-</button>
+                   <label> {timesChosen} </label>
+                <button onClick={() => onAddToCard(id)}>+</button>
+            </div>
+        }
     }
 
     return (
@@ -27,15 +39,9 @@ export const FoodItem = ({
                 <img src={photo ?`${photo}` : preloader} alt="food picture" />
             </div>
             <div className="food-item__description">{description}</div>
-            <div>
-                <div className="food-item__price">{price}</div>
-                {!timesChosen
-                ? <button onClick={() => onAddToCard(id)}>Заказать</button>
-                : <div className="food-item__counter">
-                    <button onClick={() => onRemoveFromCard(id)} >-</button>
-                        {timesChosen}
-                    <button onClick={() => onAddToCard(id)}>+</button>
-                </div>}
+            <div className="food-item__addfull">
+                <Buttons/>
+                <div className="food-item__price">{price} р.</div>
            </div>
         </div>
     )

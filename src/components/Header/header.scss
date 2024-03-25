@@ -5,6 +5,17 @@
     align-items: center;
     position: relative;
 
+    .back {
+        position: absolute;
+        left: 5%;
+        display: flex;
+        align-items: center;
+        
+        a {
+            color: #000;
+        }
+    }
+
     .login-block {
         position: absolute;
         right: 5%;

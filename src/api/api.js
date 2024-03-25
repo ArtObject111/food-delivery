@@ -18,6 +18,7 @@ export const authAPI = {
         return signOut(auth)
     }
 }
+
 let lastVisible
 
 export const menuAPI = {
@@ -25,9 +26,20 @@ export const menuAPI = {
         const menuRef = collection(db, "menu");
         const q = isInitial ? query(menuRef, startAfter(lastVisible), limit(itemsAmount)) : query(menuRef, limit(itemsAmount))
         const querySnapshot = await getDocs(q);
-        
         lastVisible = querySnapshot.docs[querySnapshot.docs.length-1];
         return querySnapshot
+    }
+}
+
+export const checkoutAPI = {
+    async postCheckout (checkout) {   
+        try {
+           const docRef = await addDoc(collection(db, "checkouts"), checkout)
+           return docRef.id
+        }
+        catch (error) {
+            console.error("Error adding document: ", error);
+        }
     }
 }
 

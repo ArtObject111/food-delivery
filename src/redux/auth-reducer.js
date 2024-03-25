@@ -2,10 +2,12 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { authAPI }                     from "../api/api"
 import { toggleIsFetching }            from "./app-reducer"
 import { stopSubmit }                  from "redux-form"
+import { clearCheckout }               from "./menu-reducer"
 
 let initialState = {
     isAuth: false,
-    email: ""
+    email: "",
+    uid: ""
 }
 
 const SET_USER = "SET-USER"
@@ -16,7 +18,8 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuth: action.isAuth,
-                email: action.email
+                email: action.email,
+                uid: action.uid
             }
         default: {
             return state
@@ -24,7 +27,7 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setUser = (isAuth, email) => ({type: SET_USER, isAuth, email})
+export const setUser = (isAuth, email, uid) => ({type: SET_USER, isAuth, email, uid})
 
 export const signUpUserTC = (email, password) => async(dispatch) => {
     try{
@@ -59,6 +62,7 @@ export const signOutUserTC = () => async (dispatch) => {
     try {
         await authAPI.signOut()
         dispatch(setUser(false, ""))
+        dispatch(clearCheckout())
     }
     catch (error) {
         console.error(error.code)
@@ -74,7 +78,7 @@ export const getAuthUserDataTC = () => async(dispatch) => {
         onAuthStateChanged(auth, user => {
             console.log(user)
             !!user &&
-            dispatch(setUser(true, auth.currentUser.email))
+            dispatch(setUser(true, auth.currentUser.email, auth.currentUser.uid))
             dispatch(toggleIsFetching(false))
         })
 }
