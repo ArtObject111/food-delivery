@@ -5,7 +5,8 @@ import {
 }                                      from "firebase/auth";
 import { auth, db }                    from "../firebase";
 import { addDoc, collection, getDocs, 
-    limit, query, startAfter }         from "firebase/firestore";
+    limit, query, startAfter, where }         from "firebase/firestore";
+import _ from "lodash";
 
 export const authAPI = {
     signUp(email, password) {
@@ -23,7 +24,7 @@ let lastVisible
 
 export const menuAPI = {
     async getMenu (itemsAmount, isInitial) {
-        const menuRef = collection(db, "menu");
+        const menuRef = collection(db, "menu")
         const q = isInitial ? query(menuRef, startAfter(lastVisible), limit(itemsAmount)) : query(menuRef, limit(itemsAmount))
         const querySnapshot = await getDocs(q);
         lastVisible = querySnapshot.docs[querySnapshot.docs.length-1];
@@ -32,6 +33,15 @@ export const menuAPI = {
 }
 
 export const checkoutAPI = {
+    async requestCheckoutHistory (uid) {
+            const docRef = collection(db, "checkouts")
+            const q = query(docRef, where("uid", "==", uid))
+            const querySnapshot = await getDocs(q);
+            querySnapshot.map((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            return querySnapshot
+        });
+    },
     async postCheckout (checkout) {   
         try {
            const docRef = await addDoc(collection(db, "checkouts"), checkout)

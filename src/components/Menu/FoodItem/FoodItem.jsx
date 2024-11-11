@@ -1,14 +1,13 @@
-import React, { useState } from      "react";
+import React from      "react";
 
 import                     "./food-item.scss"
-import preloader           from "../../../assets/vector/tail-spin.svg"
+import preloader           from "../../../assets/vector/tail-spin-white.svg"
 
 export const FoodItem = ({
     id, name, price,
     description, photo,
     timesChosen, addToCart,
-    removeFromCart, chosenFood
-    }) => {
+    removeFromCart }) => {
 
     const onAddToCard = (id) => {
         addToCart(id)
